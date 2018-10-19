@@ -40,7 +40,7 @@
     enable: nativeSupport ? noop : enablePlaceholders
   };
 
-  if ( nativeSupport ) {
+  if ( nativeSupport && !(!(window.ActiveXObject) && "ActiveXObject" in window) ) {
     return;
   }
 
@@ -90,7 +90,7 @@
   ];
 
   // Styling variables.
-  var placeholderStyleColor = '#ccc';
+  var placeholderStyleColor = 'rgba(0, 0, 0, 0.38)';
   var placeholderClassName = 'placeholdersjs';
   var classNameRegExp = new RegExp('(?:^|\\s)' + placeholderClassName + '(?!\\S)');
 
